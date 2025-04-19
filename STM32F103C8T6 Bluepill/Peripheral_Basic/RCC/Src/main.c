@@ -18,16 +18,24 @@
 
 #include <stdint.h>
 
-#if !defined(__SOFT_FP__) && defined(__ARM_FP)
-  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
-#endif
+
+
+#define RCC_BASE 		0x40021000
+#define RCC_CR   		(*(volatile uint32_t*)(RCC_BASE + 0x00))
+#define RCC_CR_HSEON	16
+#define RCC_CR_HSERDY	17
+
+#define RCC_CFGR		RCC_BASE + 0x04
 
 int main(void)
 {
+	// HSE Enable
+    RCC_CR |= (1 << RCC_CR_HSEON);
+    while(!(RCC_CR & (1 << RCC_CR_HSERDY)));
 
 
-	while(1)
-	{
+    while (1)
+    {
 
-	}
+    }
 }
