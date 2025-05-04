@@ -1,0 +1,5 @@
+../Application/module/dimming.c:11:15:getDimmingMode	1
+../Application/module/dimming.c:16:6:setDimmingMode	1
+../Application/module/dimming.c:21:10:dimmingLevelMapping	1
+../Application/module/dimming.c:26:6:HAL_TIM_PWM_PulseFinishedCallback	7
+../Application/module/dimming.c:41:6:dimmingProc	7
